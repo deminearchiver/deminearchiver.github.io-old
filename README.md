@@ -1,2 +1,0 @@
-# DeMineArchiver.github.io
-Yes.
