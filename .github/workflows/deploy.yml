@@ -39,6 +39,7 @@ jobs:
       - name: Deploy to Cloudflare Pages
         id: deploy-cloudflare
         uses: cloudflare/pages-action@v1
+        continue-on-error: true
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
