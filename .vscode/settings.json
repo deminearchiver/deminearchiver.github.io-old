@@ -1,0 +1,8 @@
+{
+  "vite.buildCommand": "yarn run build",
+  "vite.devCommand": "yarn run dev",
+  "vite.host": "localhost",
+  "vite.port": 5173,
+  "vite.notifyOnStarted": true,
+  "vite.autoStart": false
+}

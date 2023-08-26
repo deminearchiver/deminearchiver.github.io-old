@@ -1,9 +1,14 @@
 /* @refresh reload */
-import { render } from 'solid-js/web'
+import { lazy } from "solid-js";
+import { render } from "solid-js/web";
 
-import './index.css'
-import App from './App'
+const Wrapper = lazy(
+  () => 
+    location.hostname.endsWith("pages.dev")
+    ? import("./app/wrapper/Cloudflare")
+    : location.hostname.endsWith("github.io") 
+    ? import("./app/wrapper/GitHub")
+    : import("./app/wrapper/Other")
+)
 
-const root = document.getElementById('root')
-
-render(() => <App />, root!)
+render(() => <Wrapper />, document.getElementById("root")!);
