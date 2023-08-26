@@ -1,4 +1,4 @@
-name: Deploy Static Website
+name: Deploy Pages
 
 on:
   push:
@@ -6,10 +6,6 @@ on:
       - main
   workflow_dispatch: 
   
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 concurrency:
   group: 'pages'
   cancel-in-progress: true
@@ -20,12 +16,14 @@ jobs:
       contents: read
       deployments: write
     outputs:
+      id: ${{ steps.deploy.outputs.id }}
       url: ${{ steps.deploy.outputs.url }}
+      alias: ${{ steps.deploy.outputs.alias }}
+      environment: ${{ steps.deploy.outputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
@@ -34,7 +32,6 @@ jobs:
       
       - name: Install dependencies
         run: yarn install
-
       - name: Build
         run: yarn build
         
@@ -49,35 +46,35 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: 3
-  # deploy:
-  #   environment: 
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
+  github-pages:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment: 
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn   
+          
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
 
-  #     - name: Set up Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 18
-  #         cache: yarn
-      
-  #     - name: Install dependencies
-  #       run: yarn install
-
-  #     - name: Build
-  #       run: yarn build
-
-  #     - name: Setup Pages
-  #       uses: actions/configure-pages@v3
-
-  #     - name: Upload artifact
-  #       uses: actions/upload-pages-artifact@v1
-  #       with:
-  #         path: './dist'
-
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v1
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
