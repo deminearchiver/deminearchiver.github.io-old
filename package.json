@@ -2,8 +2,24 @@
   "private": true,
   "name": "@deminearchiver/website",
   "version": "0.0.0",
+  "description": "DeMineArchiver's Personal Website",
+  "author": {
+    "name": "DeMineArchiver",
+    "url": "https://github.com/DeMineArchiver"
+  },
   "license": "CC-BY-4.0",
+  "homepage": "https://deminearchiver.github.io",
+  "keywords": [
+    "website",
+    "web",
+    "solidjs",
+    "portfolio"
+  ],
+  "repository": "https://github.com/DeMineArchiver/deminearchiver.github.io/",
+  "bugs": "https://github.com/DeMineArchiver/deminearchiver.github.io/issues",
+
   "type": "module",
+  "packageManager": "yarn@3.6.3",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
