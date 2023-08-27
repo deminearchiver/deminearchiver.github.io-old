@@ -4,6 +4,11 @@ on:
   push:
     branches: 
       - main
+    paths:
+      - '!README.md'
+      - '!LICENSE'
+      - '!.editorconfig'
+      - '!.vscode'
   workflow_dispatch: 
   
 concurrency:
@@ -58,70 +63,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deploy-github
         uses: actions/deploy-pages@v1
-  # cloudflare-pages:
-  #   permissions:
-  #     contents: read
-  #     deployments: write
-  #   outputs:
-  #     id: ${{ steps.deploy.outputs.id }}
-  #     url: ${{ steps.deploy.outputs.url }}
-  #     alias: ${{ steps.deploy.outputs.alias }}
-  #     environment: ${{ steps.deploy.outputs.environment }}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #     - name: Set up Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 18
-  #         cache: yarn
-      
-  #     - name: Install dependencies
-  #       run: yarn install
-  #     - name: Build
-  #       run: yarn build
-        
-  #     - name: Deploy to Cloudflare Pages
-  #       id: deploy
-  #       uses: cloudflare/pages-action@v1
-  #       with:
-  #         projectName: deminearchiver
-  #         accountId: 38794234ecc4906051a567a03b96d5bd
-  #         branch: main
-  #         directory: ./dist
-  #         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-  #         gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-  #         wranglerVersion: 3
-  # github-pages:
-  #   permissions:
-  #     contents: read
-  #     pages: write
-  #     id-token: write
-  #   environment: 
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #     - name: Set up Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 18
-  #         cache: yarn   
-          
-  #     - name: Install dependencies
-  #       run: yarn install
-  #     - name: Build
-  #       run: yarn build
-
-  #     - name: Setup Pages
-  #       uses: actions/configure-pages@v3
-  #     - name: Upload Pages artifact
-  #       uses: actions/upload-pages-artifact@v1
-  #       with:
-  #         path: './dist'
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v1
