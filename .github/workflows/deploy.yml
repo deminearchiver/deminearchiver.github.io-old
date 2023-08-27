@@ -4,11 +4,6 @@ on:
   push:
     branches: 
       - main
-    paths:
-      - '!README.md'
-      - '!LICENSE'
-      - '!.editorconfig'
-      - '!.vscode'
   workflow_dispatch: 
   
 concurrency:
