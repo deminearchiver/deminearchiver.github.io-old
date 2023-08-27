@@ -1,30 +1,28 @@
-name: Deploy Pages
+name: Cloudflare Pages
 
 on:
   push:
-    branches: 
+    branches:
       - main
       - dev
   pull_request: 
     branches: 
       - main
       - dev
-  workflow_dispatch: 
-  
-concurrency:
-  group: 'pages'
+
+concurrency: 
+  group: cloudflare-pages
   cancel-in-progress: true
 
 jobs:
   deploy:
+    name: Deploy
+    environment: 
+      name: cloudflare-pages
+      url: ${{ steps.deploy-pages.outputs.url }}
     permissions:
       contents: read
       deployments: write
-      pages: write
-      id-token: write
-    environment: 
-      name: github-pages
-      url: ${{ steps.deploy-github.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,17 +32,13 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-
       - name: Install dependencies
         run: yarn install
       - name: Build
         run: yarn run build
-
-      # Cloudflare Pages
       - name: Deploy to Cloudflare Pages
-        id: deploy-cloudflare
-        uses: cloudflare/pages-action@v1
-        continue-on-error: true
+        id: deploy-pages
+        uses: cloudflare/pages-action@270b9fcdaf8c1055fbc67c1df6b2d43fdf840edb
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
@@ -52,12 +46,4 @@ jobs:
           projectName: deminearchiver
           directory: ./dist
           wranglerVersion: 3
-
-      # GitHub Pages
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./dist
-      - name: Deploy to GitHub Pages
-        id: deploy-github
-        uses: actions/deploy-pages@v1
+          environmentName: cloudflare-pages
