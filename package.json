@@ -1,7 +1,8 @@
 {
-  "name": "a",
   "private": true,
+  "name": "@deminearchiver/website",
   "version": "0.0.0",
+  "license": "CC-BY-4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
