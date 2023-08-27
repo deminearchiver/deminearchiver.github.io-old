@@ -1,22 +1,16 @@
 import { Component } from "solid-js";
 import styles from "./App.module.css";
 import Button from "../lib/ui/components/button/Button";
+import HoverProvider from "../lib/hover/HoverProvider";
 
 
 
 const App: Component = () => {
   return (
     <div id={styles["app"]}>
-      <header>
-        <div>
-          
-        </div>
-      </header>
-      <main>
-        <Button>Test</Button>
-        <Button>Test</Button>
-        <Button>Test</Button>
-      </main>
+      <HoverProvider>
+
+      </HoverProvider>
     </div>
   );
 };

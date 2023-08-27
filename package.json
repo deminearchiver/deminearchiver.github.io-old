@@ -17,7 +17,6 @@
   ],
   "repository": "https://github.com/DeMineArchiver/deminearchiver.github.io/",
   "bugs": "https://github.com/DeMineArchiver/deminearchiver.github.io/issues",
-
   "type": "module",
   "packageManager": "yarn@3.6.3",
   "scripts": {
@@ -29,6 +28,13 @@
     "solid-js": "^1.7.8"
   },
   "devDependencies": {
+    "@eslint/js": "^8.48.0",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-solid": "^0.13.0",
+    "globals": "^13.21.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-solid": "^2.7.0"
