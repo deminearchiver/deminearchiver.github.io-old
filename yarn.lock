@@ -444,6 +444,7 @@ __metadata:
   resolution: "@deminearchiver/website@workspace:."
   dependencies:
     "@eslint/js": ^8.48.0
+    "@types/node": ^20.5.6
     "@typescript-eslint/eslint-plugin": latest
     "@typescript-eslint/parser": latest
     eslint: ^8.48.0
@@ -1006,6 +1007,13 @@ __metadata:
   version: 7.0.12
   resolution: "@types/json-schema@npm:7.0.12"
   checksum: 00239e97234eeb5ceefb0c1875d98ade6e922bfec39dd365ec6bd360b5c2f825e612ac4f6e5f1d13601b8b30f378f15e6faa805a3a732f4a1bbe61915163d293
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.5.6":
+  version: 20.5.6
+  resolution: "@types/node@npm:20.5.6"
+  checksum: d2ce44f1cfa3fd00fe7426f7cf9a46d680cd57802b874ed5618e7d9101a9c6b8de37f08c0e7185ee06fb363ad492549c3ea69665c7e8e31c7813210ed8e89005
   languageName: node
   linkType: hard
 
