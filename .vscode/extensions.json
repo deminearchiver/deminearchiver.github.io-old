@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "antfu.vite",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
   ]
 }
