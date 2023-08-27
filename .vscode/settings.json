@@ -4,5 +4,7 @@
   "vite.host": "localhost",
   "vite.port": 5173,
   "vite.notifyOnStarted": true,
-  "vite.autoStart": false
+  "vite.autoStart": false,
+  
+  "eslint.experimental.useFlatConfig": true
 }
