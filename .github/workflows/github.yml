@@ -1,22 +1,25 @@
 name: GitHub Pages
+
 on:
   push:
     branches: 
       - main
+
 concurrency: 
   group: github-pages
   cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     name: Deploy
     environment: 
       name: github-pages
-      url: ${{ steps.deploy-pages.outputs.page_url }}
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
+      url: ${{ steps.deploy.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,5 +38,5 @@ jobs:
         with:
           path: ./dist
       - name: Deploy to GitHub Pages
-        id: deploy-pages
+        id: deploy
         uses: actions/deploy-pages@v2

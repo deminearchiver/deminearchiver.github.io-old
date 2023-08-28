@@ -14,15 +14,16 @@ concurrency:
   group: cloudflare-pages
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  deployments: write
+
 jobs:
   deploy:
     name: Deploy
     environment: 
       name: cloudflare-pages
-      url: ${{ steps.deploy-pages.outputs.url }}
-    permissions:
-      contents: read
-      deployments: write
+      url: ${{ steps.deploy.outputs.url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -37,7 +38,7 @@ jobs:
       - name: Build
         run: yarn run build
       - name: Deploy to Cloudflare Pages
-        id: deploy-pages
+        id: deploy
         uses: cloudflare/pages-action@270b9fcdaf8c1055fbc67c1df6b2d43fdf840edb
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
