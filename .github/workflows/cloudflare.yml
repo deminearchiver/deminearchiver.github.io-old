@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   deploy:
-    name: Deploy
+    name: Deploy to Cloudflare Pages
     environment: 
       name: cloudflare-pages
       url: ${{ steps.deploy.outputs.url }}
