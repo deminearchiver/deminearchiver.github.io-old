@@ -2,7 +2,7 @@ name: GitHub Pages
 on:
   push:
     branches: 
-      - mian
+      - main
 concurrency: 
   group: github-pages
   cancel-in-progress: true
