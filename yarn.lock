@@ -444,6 +444,7 @@ __metadata:
   resolution: "@deminearchiver/website@workspace:."
   dependencies:
     "@eslint/js": ^8.48.0
+    "@solid-primitives/map": ^0.4.7
     "@types/node": ^20.5.6
     "@typescript-eslint/eslint-plugin": latest
     "@typescript-eslint/parser": latest
@@ -952,6 +953,37 @@ __metadata:
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
   checksum: 6ad6a00fc4f2f2cfc6bff76fb1d88b8ee20bc0601e18ebb01b6d4be583733a860239a521a7fbca73b612e66705078809483549d2b18f370eb346c5155c8e4a0f
+  languageName: node
+  linkType: hard
+
+"@solid-primitives/map@npm:^0.4.7":
+  version: 0.4.7
+  resolution: "@solid-primitives/map@npm:0.4.7"
+  dependencies:
+    "@solid-primitives/trigger": ^1.0.8
+  peerDependencies:
+    solid-js: ^1.6.12
+  checksum: b4f2922850f85cc7d8aa168c4e97e85b3b00fcb63531565a4d3dccc831322b90405ade76a4226275fd11863e7eec07803169dae6b42df6fecf8ad48831eecfdf
+  languageName: node
+  linkType: hard
+
+"@solid-primitives/trigger@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "@solid-primitives/trigger@npm:1.0.8"
+  dependencies:
+    "@solid-primitives/utils": ^6.2.1
+  peerDependencies:
+    solid-js: ^1.6.12
+  checksum: aa5f27a3fc6420cc6d1a243e1f26776a4807458a4a079cfe6746b4bdb3150776ab6b8ce8f411722ec08989f7bd7e82a1530d534d0a734ba8e8c7cdd7d927bfa8
+  languageName: node
+  linkType: hard
+
+"@solid-primitives/utils@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "@solid-primitives/utils@npm:6.2.1"
+  peerDependencies:
+    solid-js: ^1.6.12
+  checksum: eaaa442431e5bffcd4f82a379e2f74be00636011b320400c1fc0bb98d6dbc4cb4c6c0d28863c43d9bcf91f654a97d5a468e73e7f623497fe55e6d85424fa36b1
   languageName: node
   linkType: hard
 

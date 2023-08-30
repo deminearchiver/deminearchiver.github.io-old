@@ -22,6 +22,11 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": false,
+
+    "paths": {
+      "@ui": ["./src/lib/ui"],
+      "@ui/components": ["./src/lib/ui/components"]
+    }
   },
   "include": ["src", "vite.config.ts"]
 }

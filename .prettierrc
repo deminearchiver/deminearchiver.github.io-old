@@ -1,9 +1,10 @@
 {
   "parser": "typescript",
-  "arrowParens": "avoid",
-  "printWidth": 120,
+  "arrowParens": "always",
+  "printWidth": 80,
   "tabWidth": 2,
   "useTabs": false,
   "jsxSingleQuote": false,
-  "semi": true
+  "semi": true,
+  "editorconfig": true
 }
